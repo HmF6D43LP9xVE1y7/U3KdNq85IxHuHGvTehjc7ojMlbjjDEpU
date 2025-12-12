@@ -738,3 +738,59 @@ cleanup needed
                 bottom: calc((var(--viewWidth) / var(--gridWidth)) * 0.25);
             }
         }
+        /* MOBILE override: controls visible at bottom */
+@media only screen and (max-width:767.9px) {
+
+    .lightbox img {
+        max-width: calc((var(--viewWidth) / var(--gridWidth)) * 14);
+        /* give space for controls at the bottom */
+        max-height: calc(100vh - (var(--viewWidth) / var(--gridWidth)) * 10);
+    }
+
+    .lightboxPrev,
+    .lightboxNext,
+    .lightboxCount,
+    .lightboxClose {
+        display: block;
+    }
+
+    .lightboxPrev,
+    .lightboxNext,
+    .lightboxClose {
+        position: fixed;
+        bottom: calc((var(--viewWidth) / var(--gridWidth)) * 1.5);
+        top: auto;
+        transform: translateY(0);
+        height: calc((var(--viewWidth) / var(--gridWidth)) * 2);
+    }
+
+    .lightboxPrev {
+        left: calc((var(--viewWidth) / var(--gridWidth)) * 1);
+        right: auto;
+    }
+
+    .lightboxNext {
+        right: calc((var(--viewWidth) / var(--gridWidth)) * 1);
+        left: auto;
+    }
+
+    .lightboxClose {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+
+    .lightboxCount {
+        bottom: calc((var(--viewWidth) / var(--gridWidth)) * 0.25);
+    }
+
+    /* Mobile press effect */
+    .lightboxPrev:active,
+    .lightboxNext:active {
+        -webkit-transform: translateX(0%) translateY(0%) scale(.9);
+        -moz-transform: translateX(0%) translateY(0%) scale(.9);
+        -ms-transform: translateX(0%) translateY(0%) scale(.9);
+        -o-transform: translateX(0%) translateY(0%) scale(.9);
+        transform: translateX(0%) translateY(0%) scale(.9);
+    }
+}
