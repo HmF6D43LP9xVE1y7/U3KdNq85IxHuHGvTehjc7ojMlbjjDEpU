@@ -354,3 +354,387 @@ div, a, svg, p, img {
 p:not(:nth-child(1)) {
     text-indent: calc((var(--viewWidth) / var(--baseValue)) * 1);
 }
+
+
+
+
+
+
+
+
+
+/* lightbox unchanged code */
+
+
+.lightboxCount {
+    left: 50%;
+    bottom: 0;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    text-indent: 0 !important;
+    text-align: center;
+}
+.lightboxPrev,
+.lightboxNext,
+.lightboxCount,
+.lightboxClose {
+    position: fixed;
+    margin: 0 !important;
+    z-index: 2;
+}
+.lightboxPrev,
+.lightboxNext {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.lightboxPrev:active,
+.lightboxNext:active {
+    -webkit-transform: translateX(0%) translateY(-50%) scale(.9);
+    -moz-transform: translateX(0%) translateY(-50%) scale(.9);
+    -ms-transform: translateX(0%) translateY(-50%) scale(.9);
+    -o-transform: translateX(0%) translateY(-50%) scale(.9);
+    transform: translateX(0%) translateY(-50%) scale(.9);
+}
+@media only screen and (max-width:767.9px) {
+    .lightboxPrev,
+    .lightboxNext {
+        height: calc((var(--viewWidth) / var(--gridWidth)) * 1.5);
+    }
+    .lightboxClose {
+        top: calc((var(--viewWidth) / var(--gridWidth)) * 1);
+        right: calc((var(--viewWidth) / var(--gridWidth)) * 1);
+    }
+    .lightboxPrev,
+    .lightboxNext,
+    .lightboxCount {
+        display: none;
+    }
+    .lightbox img {
+        max-width: calc((var(--viewWidth) / var(--gridWidth)) * 14);
+        max-height: calc(100vh - calc(var(--viewWidth) / var(--gridWidth)) * 6);
+    }
+}
+@media only screen and (min-width:768px) and (max-width:1159.9px) {
+    .lightboxPrev,
+    .lightboxNext {
+        height: calc((var(--viewWidth) / var(--gridWidth)) * 2);
+    }
+    .lightboxClose {
+        top: calc((var(--viewWidth) / var(--gridWidth)) * 2);
+        right: calc((var(--viewWidth) / var(--gridWidth)) * 2);
+    }
+    .lightboxPrev {
+        left: calc((var(--viewWidth) / var(--gridWidth)) * 2);
+    }
+    .lightboxNext {
+        right: calc((var(--viewWidth) / var(--gridWidth)) * 2);
+    }
+    .lightboxCount {
+        height: calc((var(--viewWidth) / var(--gridWidth)) * 3.5);
+    }
+    .lightbox img {
+        max-width: calc((var(--viewWidth) / var(--gridWidth)) * 34);
+        max-height: calc(100vh - calc(var(--viewWidth) / var(--gridWidth)) * 12);
+    }
+}
+@media only screen and (min-width:1160px) {
+    .lightboxPrev,
+    .lightboxNext {
+        height: calc((var(--viewWidth) / var(--gridWidth)) * 1);
+    }
+    .lightboxClose {
+        top: calc((var(--viewWidth) / var(--gridWidth)) * 1);
+        right: calc((calc(var(--viewWidth) / var(--gridWidth)) * 1) + var(--margin));
+    }
+    .lightboxPrev {
+        left: calc((calc(var(--viewWidth) / var(--gridWidth)) * 1) + var(--margin));
+    }
+    .lightboxNext {
+        right: calc((calc(var(--viewWidth) / var(--gridWidth)) * 1) + var(--margin));
+    }
+    .lightbox img {
+        max-width: calc((var(--viewWidth) / var(--gridWidth)) * 38);
+        max-height: calc(100vh - calc(var(--viewWidth) / var(--gridWidth)) * 6);
+    }
+}
+@media only screen and (min-width:1160px) {
+    .lightboxCount {
+        height: calc((var(--viewWidth) / var(--gridWidth)) * 2);
+        font-size: calc((var(--viewWidth) / var(--gridWidth)) * .45); /* base value = 1 */
+        line-height: calc((var(--viewWidth) / var(--gridWidth)) * .5);
+        margin-bottom: calc((var(--viewWidth) / var(--gridWidth)) * 1);
+    }
+}
+
+
+
+
+
+
+
+
+/*
+
+
+
+
+
+added code from AI
+cleanup needed
+
+
+
+
+
+*/
+
+ * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background:#fff;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        a {
+            text-decoration:none;
+            color:#000;
+            cursor:pointer;
+        }
+
+        a:hover {
+            opacity:.3;
+        }
+
+        :root {
+            --black: rgba(10, 10, 10, 1);
+            --white: rgba(245, 245, 245, 1);
+            --baseValue: 44;
+            --viewWidth: 100vw;
+            --margin: 0vw;
+            --gridWidth: 44;
+        }
+
+        @media only screen and (max-width:767.9px) {
+            :root {
+                --baseValue: 16;
+                --viewWidth: 100vw;
+                --margin: 0vw;
+                --gridWidth: 16;
+            }
+        }
+
+        .fontS {
+            font-size: calc((var(--viewWidth) / var(--baseValue)) * .45);
+            line-height: calc((var(--viewWidth) / var(--baseValue)) * .5);
+            margin-bottom: calc((var(--viewWidth) / var(--baseValue)) * 1);
+        }
+        .fontM {
+            font-size: calc((var(--viewWidth) / var(--baseValue)) * .675);
+            line-height: calc((var(--viewWidth) / var(--baseValue)) * .75);
+            margin-bottom: calc((var(--viewWidth) / var(--baseValue)) * 1);
+        }
+        .fontL {
+            font-size: calc((var(--viewWidth) / var(--baseValue)) * 1.35);
+            line-height: calc((var(--viewWidth) / var(--baseValue)) * 1.5);
+            margin-bottom: calc((var(--viewWidth) / var(--baseValue)) * 1);
+        }
+
+        .underline {
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+        .contentFixed {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--black);
+            color: var(--white);
+            z-index: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .contentFixedLeft,
+        .contentFixedRight {
+            max-width: 50vw;
+        }
+
+        @media only screen and (max-width: 767.9px) {
+            .contentFixed {
+                flex-direction: column;
+                overflow: auto;
+            }
+            .contentFixedLeft,
+            .contentFixedRight {
+                width: calc(100vw - (var(--viewWidth) / var(--baseValue)) * 2);
+                margin: calc((var(--viewWidth) / var(--baseValue)) * 1);
+                max-width: 90vw;
+            }
+        }
+
+        .contentScroll {
+            position: relative;
+            width: 100vw;
+            margin-top: 100vh;
+            z-index: 1;
+        }
+
+        .contentSection {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: center;
+            height: 100vh;
+            background-color: var(--white);
+            color: var(--black);
+            gap: calc((var(--viewWidth) / var(--baseValue)) * 1);
+            padding: calc((var(--viewWidth) / var(--baseValue)) * 1);
+        }
+
+        .sectionImage,
+        .sectionInfo {
+            flex: 0 0 50%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sectionImage img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .sectionInfo {
+            flex-direction: column;
+        }
+
+        @media only screen and (max-width: 767.9px) {
+            .contentSection {
+                flex-direction: column;
+                height: auto;
+            }
+            .sectionImage,
+            .sectionInfo {
+                flex: 0 0 auto;
+                max-width: calc(100vw - (var(--viewWidth) / var(--baseValue)) * 2);
+            }
+            .sectionImage img {
+                height: auto;
+            }
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: calc((var(--viewWidth) / var(--gridWidth)) * 38);
+            max-height: calc(100vh - (var(--viewWidth) / var(--gridWidth)) * 6);
+            object-fit: contain;
+        }
+
+        .lightboxPrev,
+        .lightboxNext,
+        .lightboxCount,
+        .lightboxClose {
+            position: fixed;
+            margin: 0;
+            z-index: 1001;
+            fill: #fff;
+            cursor: pointer;
+        }
+
+        .lightboxCount {
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            color:#fff;
+            font-size: calc((var(--viewWidth) / var(--gridWidth)) * .45);
+        }
+
+        .lightboxPrev,
+        .lightboxNext {
+            top: 50%;
+            transform: translateY(-50%);
+            height: calc((var(--viewWidth) / var(--gridWidth)) * 1);
+        }
+        .lightboxPrev {
+            left: calc((var(--viewWidth) / var(--gridWidth)) * 1 + var(--margin));
+        }
+        .lightboxNext {
+            right: calc((var(--viewWidth) / var(--gridWidth)) * 1 + var(--margin));
+        }
+
+        .lightboxClose {
+            top: calc((var(--viewWidth) / var(--gridWidth)) * 1);
+            right: calc((var(--viewWidth) / var(--gridWidth)) * 1 + var(--margin));
+            height: calc((var(--viewWidth) / var(--gridWidth)) * 1.2);
+        }
+
+        /* MOBILE override: controls visible at bottom */
+        @media only screen and (max-width:767.9px) {
+
+            .lightbox img {
+                max-width: calc((var(--viewWidth) / var(--gridWidth)) * 14);
+                /* give space for controls at the bottom */
+                max-height: calc(100vh - (var(--viewWidth) / var(--gridWidth)) * 10);
+            }
+
+            .lightboxPrev,
+            .lightboxNext,
+            .lightboxCount,
+            .lightboxClose {
+                display: block;
+            }
+
+            .lightboxPrev,
+            .lightboxNext,
+            .lightboxClose {
+                position: fixed;
+                bottom: calc((var(--viewWidth) / var(--gridWidth)) * 1.5);
+                top: auto;
+                transform: translateY(0);
+                height: calc((var(--viewWidth) / var(--gridWidth)) * 2);
+            }
+
+            .lightboxPrev {
+                left: calc((var(--viewWidth) / var(--gridWidth)) * 1);
+                right: auto;
+            }
+
+            .lightboxNext {
+                right: calc((var(--viewWidth) / var(--gridWidth)) * 1);
+                left: auto;
+            }
+
+            .lightboxClose {
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+            }
+
+            .lightboxCount {
+                bottom: calc((var(--viewWidth) / var(--gridWidth)) * 0.25);
+            }
+        }

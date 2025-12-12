@@ -57,7 +57,7 @@
             </svg>
         </div>
         <div class="contentScroll">
-            <div class="contentSection">
+            <div class="contentSection" data-project="red">
                 <div class="sectionInfo">
                     <div class="fontM">
                         <p>
@@ -71,16 +71,14 @@
                         </p>
                     </div>
                     <div class="fontS">
-                        <p>
-                            <a class="underline" href="">view full project</a>
-                        </p>
+                        <p class="underline viewProject" data-project="red">view full project</p>
                     </div>
                 </div>
                 <div class="sectionImage">
                     <img src="https://placehold.co/25x35?text=vertical+placeholder" alt="">
                 </div>
             </div>
-            <div class="contentSection">
+            <div class="contentSection" data-project="green">
                 <div class="sectionImage">
                     <img src="https://placehold.co/35x25?text=horizonal+placeholder" alt="">
                 </div>
@@ -99,13 +97,11 @@
                         </p>
                     </div>
                     <div class="fontS">
-                        <p>
-                            <a class="underline" href="">view full project</a>
-                        </p>
+                        <p class="underline viewProject" data-project="green">view full project</p>
                     </div>
                 </div>
             </div>
-            <div class="contentSection">
+            <div class="contentSection" data-project="yellow">
                 <div class="sectionInfo">
                     <div class="fontM">
                         <p>
@@ -121,9 +117,7 @@
                         </p>
                     </div>
                     <div class="fontS">
-                        <p>
-                            <a class="underline" href="">view full project</a>
-                        </p>
+                        <p class="underline viewProject" data-project="yellow">view full project</p>
                     </div>
                 </div>
                 <div class="sectionImage">
@@ -131,7 +125,27 @@
                 </div>
             </div>
         </div>
+
+
+
+        <div class="lightbox">
+            <svg class="lightboxClose" viewBox="-1 -1 18 17.5">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+            </svg>
+            <svg class="lightboxPrev" viewBox="-1 -1 18 17.5">
+                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            </svg>
+            <svg class="lightboxNext" viewBox="-1 -1 18 17.5">
+                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+            <img src="" class="lightboxSrc" title="&#169; tim ott" alt="&#169; tim ott">
+            <p class="lightboxCount fontM"></p>
+        </div>
+
+
+
         <script src="js/preventDrag.min.js"></script>
         <script src="js/pageFader.min.js"></script>
+        <script src="js/lightbox.min.js"></script>
     </body>
 </html>
