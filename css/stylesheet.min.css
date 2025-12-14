@@ -188,11 +188,11 @@ a:hover {
     }
 }
 /*                                                                                                                      DEBUG */
-/*
+
 div, a, svg, p, img {
     background-color: rgba(255, 0, 0, .2) !important;
 }
-*/
+
 .contentSection {
     border: .1px rgba(0, 0, 0, .1) solid;
 }
