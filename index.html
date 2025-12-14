@@ -143,5 +143,166 @@
         <script src="js/preventDrag.min.js"></script>
         <script src="js/pageFader.min.js"></script>
         <script src="js/lightbox.min.js"></script>
+        <script>
+        (function() {
+            const TARGET_TEXT = 'éline Lötscher';
+            let animatedElements = [];
+            let currentIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let blinkVisible = true;
+            let animationTimer;
+            let blinkTimer;
+
+            // Irregular timing ranges (ms)
+            const typeSpeeds = [80, 120, 150, 200, 60, 100, 140, 300, 500];
+            const deleteSpeeds = [30, 50, 70, 40, 25, 55, 35, 100, 150];
+
+            // Audio context for key click sounds
+            let audioCtx;
+
+            function initAudio() {
+                try {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                } catch (e) {
+                    console.log('Audio not supported');
+                }
+            }
+
+            function playKeyClick(isDelete = false) {
+                if (!audioCtx) return;
+                
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                
+                // Typing sound (higher pitch)
+                const frequency = isDelete ? 650 : 800;
+                oscillator.frequency.setValueAtTime(frequency, audioCtx.currentTime);
+                oscillator.type = 'triangle';
+                
+                gainNode.gain.setValueAtTime(.1, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.1, audioCtx.currentTime + 0.5);
+                
+                oscillator.start(audioCtx.currentTime);
+                oscillator.stop(audioCtx.currentTime + 0.05);
+            }
+
+            function injectStyles() {
+                const style = document.createElement('style');
+                style.textContent = `
+                    .typing-effect {
+                        display: inline-block;
+                    }
+                    .cursor {
+                        display: inline-block;
+                        width: 5px;
+                        height: 1em;
+                        background: #fff;
+                        margin-left: 35;
+                        line-height: 1;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            function getRandomSpeed(speeds) {
+                return speeds[Math.floor(Math.random() * speeds.length)];
+            }
+
+            function findAndWrapText(root) {
+                const walker = document.createTreeWalker(
+                    root, NodeFilter.SHOW_TEXT, null, false
+                );
+                
+                let node;
+                while (node = walker.nextNode()) {
+                    if (node.textContent.includes(TARGET_TEXT)) {
+                        const parent = node.parentNode;
+                        const text = node.textContent;
+                        const index = text.indexOf(TARGET_TEXT);
+                        
+                        if (index > 0) {
+                            parent.insertBefore(document.createTextNode(text.slice(0, index)), node);
+                        }
+                        
+                        const animSpan = document.createElement('span');
+                        animSpan.className = 'typing-effect';
+                        parent.insertBefore(animSpan, node);
+                        
+                        if (index + TARGET_TEXT.length < text.length) {
+                            parent.insertBefore(document.createTextNode(text.slice(index + TARGET_TEXT.length)), node);
+                        }
+                        
+                        parent.removeChild(node);
+                        animatedElements.push(animSpan);
+                    }
+                }
+            }
+
+            function updateDisplay() {
+                const el = animatedElements[currentIndex];
+                const currentText = TARGET_TEXT.slice(0, charIndex);
+                const cursor = blinkVisible ? '<span class="cursor"></span>' : '';
+                el.innerHTML = currentText + cursor;
+            }
+
+            function blink() {
+                blinkVisible = !blinkVisible;
+                updateDisplay();
+                blinkTimer = setTimeout(blink, 400);
+            }
+
+            function animate() {
+                const el = animatedElements[currentIndex];
+                
+                if (!isDeleting && charIndex === TARGET_TEXT.length) {
+                    setTimeout(() => {
+                        isDeleting = true;
+                        animate();
+                    }, 800 + Math.random() * 800);
+                    return;
+                }
+                
+                if (isDeleting && charIndex === 0) {
+                    currentIndex = (currentIndex + 1) % animatedElements.length;
+                    isDeleting = false;
+                    charIndex = 0;
+                    setTimeout(animate, 150 + Math.random() * 300);
+                    return;
+                }
+                
+                charIndex += isDeleting ? -1 : 1;
+                updateDisplay();
+                
+                // Play key click sound
+                playKeyClick(isDeleting);
+                
+                const speed = isDeleting ? getRandomSpeed(deleteSpeeds) : getRandomSpeed(typeSpeeds);
+                animationTimer = setTimeout(animate, speed);
+            }
+
+            function start() {
+                console.log(`Animating ${animatedElements.length} elements`);
+                if (animatedElements.length === 0) return;
+                
+                initAudio();
+                updateDisplay();
+                blink();
+                animate();
+            }
+
+            injectStyles();
+            findAndWrapText(document.body);
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', start);
+            } else {
+                start();
+            }
+        })();
+    </script>
     </body>
 </html>
