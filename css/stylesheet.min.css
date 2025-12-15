@@ -61,8 +61,8 @@ div, a, svg, p, img {
     color: rgb(0 0 0);
 }
 :root {
-    --black: rgba(10, 10, 10, 1);
-    --white: rgba(245, 245, 245, 1);
+    --black: rgba(0, 0, 0, 1);
+    --white: rgba(255, 255, 255, 1);
 }
 .bold {
     font-weight: bold;
