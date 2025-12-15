@@ -220,10 +220,11 @@ a:hover {
 div, a, svg, p, img {
     background-color: rgba(255, 0, 0, .2) !important;
 }
-*/
 .contentSection {
-    border: .1px rgba(0, 0, 0, .1) solid;
+    border: .1px rgba(255, 0, 0, 1) solid;
 }
+*/
+
 
 
 
@@ -294,11 +295,11 @@ div, a, svg, p, img {
     display: flex;
     align-items: stretch;
     justify-content: center;
-    height: 100vh;
+    height: fit-content;
     background-color: var(--white);
     color: var(--black);
     gap: calc((var(--viewWidth) / var(--baseValue)) * 1);
-    padding: calc((var(--viewWidth) / var(--baseValue)) * 1);;
+    padding: calc((var(--viewWidth) / var(--baseValue)) * 1);
 }
 .scrollIndicator {
     position: fixed;
@@ -356,6 +357,11 @@ div, a, svg, p, img {
     line-height: 1.4;
     margin-left: 0;
     max-width: calc(50vw - calc((var(--viewWidth) / var(--baseValue)) * 1.5));
+}
+@media only screen and (min-width: 768px) {
+    .sectionInfo {
+        width: calc(50vw - calc((var(--viewWidth) / var(--baseValue)) * 1.5));
+    }
 }
 .sectionInfo {
     flex: 0 0 auto;
@@ -524,8 +530,6 @@ cleanup needed
 
 
         :root {
-            --black: rgba(10, 10, 10, 1);
-            --white: rgba(245, 245, 245, 1);
             --baseValue: 44;
             --viewWidth: 100vw;
             --margin: 0vw;
@@ -545,7 +549,7 @@ cleanup needed
         .lightbox {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,.9);
+            background: rgba(0,0,0,.75);
             display: none;
             justify-content: center;
             align-items: center;
@@ -747,5 +751,12 @@ cleanup needed
     }
     .contentScroll {
         margin-top: 0;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    .contentSection {
+        padding: calc((var(--viewWidth) / var(--baseValue)) * 3) 0;
     }
 }
