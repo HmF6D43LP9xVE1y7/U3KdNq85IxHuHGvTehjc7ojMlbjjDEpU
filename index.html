@@ -169,26 +169,6 @@
                 }
             }
 
-            function playKeyClick(isDelete = false) {
-                if (!audioCtx) return;
-                
-                const oscillator = audioCtx.createOscillator();
-                const gainNode = audioCtx.createGain();
-                
-                oscillator.connect(gainNode);
-                gainNode.connect(audioCtx.destination);
-                
-                // Typing sound (higher pitch)
-                const frequency = isDelete ? 650 : 800;
-                oscillator.frequency.setValueAtTime(frequency, audioCtx.currentTime);
-                oscillator.type = 'triangle';
-                
-                gainNode.gain.setValueAtTime(.1, audioCtx.currentTime);
-                gainNode.gain.exponentialRampToValueAtTime(0.1, audioCtx.currentTime + 0.5);
-                
-                oscillator.start(audioCtx.currentTime);
-                oscillator.stop(audioCtx.currentTime + 0.05);
-            }
 
             function injectStyles() {
                 const style = document.createElement('style');
@@ -277,8 +257,6 @@
                 charIndex += isDeleting ? -1 : 1;
                 updateDisplay();
                 
-                // Play key click sound
-                playKeyClick(isDeleting);
                 
                 const speed = isDeleting ? getRandomSpeed(deleteSpeeds) : getRandomSpeed(typeSpeeds);
                 animationTimer = setTimeout(animate, speed);
