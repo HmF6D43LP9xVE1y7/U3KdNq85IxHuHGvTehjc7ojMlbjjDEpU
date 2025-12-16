@@ -854,3 +854,45 @@ div, a, svg, p, img {
 .contentSection {
     border: .1px rgba(255, 0, 0, 1) solid;
 }
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width:768px) {
+    .columnScroll {
+        /* Force explicit row assignment - NO auto-flow jumping */
+        grid-auto-flow: column;
+        grid-auto-rows: calc((var(--maxWidth) / var(--baseValue)) * 14);
+    }
+
+    /* BASE: all items explicitly placed by their absolute position */
+    .columnScrollSection:nth-child(1) .columnScrollSectionInfo { grid-column: 10 / 21; grid-row: 1; }
+    .columnScrollSection:nth-child(1) .columnScrollSectionImage { grid-column: 23 / 34; grid-row: 1; }
+    
+    .columnScrollSection:nth-child(2) .columnScrollSectionInfo { grid-column: 23 / 34; grid-row: 2; }
+    .columnScrollSection:nth-child(2) .columnScrollSectionImage { grid-column: 10 / 21; grid-row: 2; }
+    
+    .columnScrollSection:nth-child(3) .columnScrollSectionInfo { grid-column: 10 / 21; grid-row: 3; }
+    .columnScrollSection:nth-child(3) .columnScrollSectionImage { grid-column: 23 / 34; grid-row: 3; }
+    
+    .columnScrollSection:nth-child(4) .columnScrollSectionInfo { grid-column: 23 / 34; grid-row: 4; }
+    .columnScrollSection:nth-child(4) .columnScrollSectionImage { grid-column: 10 / 21; grid-row: 4; }
+    
+    .columnScrollSection:nth-child(5) .columnScrollSectionInfo { grid-column: 10 / 21; grid-row: 5; }
+    .columnScrollSection:nth-child(5) .columnScrollSectionImage { grid-column: 23 / 34; grid-row: 5; }
+    
+    /* Continue pattern as needed, or use JS for more sections */
+    
+    /* Centering */
+    .columnScrollSectionInfo,
+    .columnScrollSectionImage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
