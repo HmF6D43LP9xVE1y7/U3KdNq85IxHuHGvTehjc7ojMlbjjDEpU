@@ -178,11 +178,13 @@ a:focus {
     }
     .columnScrollSectionInfo,
     .columnScrollSectionImage {
-        height: 50vh;
+        display: flex;
+        height: calc((var(--maxWidth) / var(--baseValue)) * 14);
+        flex-direction: column;
+        justify-content: center;
     }
     .columnScroll {
         position: relative;
-        height: fit-content;
         margin-top: 100vh;
     }
 }
@@ -852,9 +854,3 @@ div, a, svg, p, img {
 .contentSection {
     border: .1px rgba(255, 0, 0, 1) solid;
 }
-
-
-
-
-
-
