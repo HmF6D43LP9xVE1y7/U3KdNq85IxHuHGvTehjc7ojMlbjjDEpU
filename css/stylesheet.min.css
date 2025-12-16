@@ -110,7 +110,8 @@ a:focus {
     -o-text-decoration: underline;
     text-decoration: underline;
 }
-.columnFixed, .columnScroll {
+.columnFixed,
+.columnScroll {
     display: grid;
     width: var(--maxWidth);
     padding: calc((var(--maxWidth) / var(--baseValue)) * 1);
@@ -124,16 +125,17 @@ a:focus {
 .columnFixed * {
     color: var(--white);
 }
-.columnFixedRight {
-    max-width: 100%;
+.columnScroll {
+    background-color: var(--white);
 }
-.columnFixedRight img {
+.columnScrollSection {
+    display: contents;
+}
+.columnFixedRight img,
+.columnScrollSectionImage img {
     display: block;
     max-width: 100%;
     object-fit: contain;
-}
-.columnScroll {
-    background-color: var(--white);
 }
 @media only screen and (max-width:767.9px) {
     :root {
@@ -141,7 +143,8 @@ a:focus {
         --maxWidth: 100vw;
         --margin: 0vw;
     }
-    .columnFixed, .columnScroll {
+    .columnFixed,
+    .columnScroll {
         grid-template-columns: repeat(14, calc((var(--maxWidth) / var(--baseValue)) * 1));
     }
     .columnFixed {
@@ -149,31 +152,33 @@ a:focus {
         overflow: hidden;
         height: auto;
     }
-    .columnFixedLeft {
+    .columnFixedLeft,
+    .columnFixedRight,
+    .columnScrollSectionInfo,
+    .columnScrollSectionImage {
         grid-column: 1 / 15;
-    }
-    .columnFixedRight {
-        grid-column: 1 / 15;
-    }
-    .columnScroll {
-        margin-top: 0;
     }
 }
 @media only screen and (min-width:768px) {
     :root {
         --baseValue: 44;
     }
-    .columnFixed, .columnScroll {
+    .columnFixed,
+    .columnScroll {
         grid-template-columns: repeat(42, calc((var(--maxWidth) / var(--baseValue)) * 1));
-    }
-    .columnFixed {
         align-items: center;
     }
-    .columnFixedLeft {
+    .columnFixedLeft,
+    .columnScrollSectionInfo {
         grid-column: 10 / 21;
     }
-    .columnFixedRight {
+    .columnFixedRight,
+    .columnScrollSectionImage {
         grid-column: 23 / 34;
+    }
+    .columnScrollSectionInfo,
+    .columnScrollSectionImage {
+        height: 50vh;
     }
     .columnScroll {
         position: relative;
@@ -198,7 +203,8 @@ a:focus {
         --maxWidth: 50vw;
         --margin: 25vw;
     }
-    .columnFixed, .columnScroll {
+    .columnFixed,
+    .columnScroll {
         width: 100vw;
         padding: calc((var(--maxWidth) / var(--baseValue)) * 1) calc(var(--margin) + calc((var(--maxWidth) / var(--baseValue)) * 1));
     }
@@ -210,34 +216,8 @@ a:focus {
 
 
 
-@media only screen and (max-width:767.9px) {
-    .columnScrollSection {
-        grid-column: 1 / 15;
-    }
-    .columnScrollSectionInfo {
-        grid-column: 1 / 15;
-    }
-    .columnScrollSectionImage {
-        grid-column: 1 / 15;
-    }  
-}
-@media only screen and (min-width:768px) {
-    .columnScrollSection {
-        grid-column: 10 / 22;
-        height: 80vh;
-    }
-    .columnScrollSectionInfo {
-        grid-column: 10 / 21;
-    }
-    .columnScrollSectionImage {
-        grid-column: 23 / 34;
-    }
-}
-.columnScrollSectionImage img {
-    display: block;
-    max-width: 100%;
-    object-fit: contain;
-}
+
+
 
 
 
@@ -292,7 +272,8 @@ a:focus {
 }
 /*                                                                                                                      DESKTOP */
 @media only screen and (min-width:1160px) {
-    .fontS, .fontM {
+    .fontS,
+    .fontM {
         font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = x1 */
         line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
         margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * .5);
@@ -329,7 +310,8 @@ a:focus {
         margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
     }
     */
-    .fontS, .fontM {
+    .fontS,
+    .fontM {
         font-size: calc((var(--maxWidth) / var(--baseValue)) * .45);
         line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
         margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * .5);
@@ -870,6 +852,8 @@ div, a, svg, p, img {
 .contentSection {
     border: .1px rgba(255, 0, 0, 1) solid;
 }
+
+
 
 
 
