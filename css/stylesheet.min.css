@@ -158,6 +158,26 @@ a:focus {
     .colScrollSectionImage {
         grid-column: 1 / 15;
     }
+    /*  ///////////////////////////////////////////////////////////////////////////  NEW */
+    /*  ///////////////////////////////////////////////////////////////////////////  NEW */
+    /*  ///////////////////////////////////////////////////////////////////////////  NEW */
+    .colFixed {
+        padding-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
+    }
+    .colScroll {
+        padding-top: calc((var(--maxWidth) / var(--baseValue)) * 3);
+        padding-bottom: calc((var(--maxWidth) / var(--baseValue)) * 0);
+    }
+    .colScrollSectionImage {
+        margin-top: calc((var(--maxWidth) / var(--baseValue)) * -2); /* Pulls image UP */
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1); /* Compensates base gap */
+    }
+    .scrollIndicator {
+        display: none;
+    }
+    /*  ///////////////////////////////////////////////////////////////////////////  NEW */
+    /*  ///////////////////////////////////////////////////////////////////////////  NEW */
+    /*  ///////////////////////////////////////////////////////////////////////////  NEW */
 }
 @media only screen and (min-width:768px) {
     :root {
@@ -772,8 +792,8 @@ cleanup needed
 @media only screen and (min-width:768px) {
 
     /* BASE: all items explicitly placed by their absolute position - SWITCHED */
-    .colScrollSection:nth-child(1) .colScrollSectionImage { grid-column: 6 / 23;}  /* Image left */
-    .colScrollSection:nth-child(1) .colScrollSectionInfo  { grid-column: 25 / 36;}  /* Info right */
+    .colScrollSection:nth-child(1) .colScrollSectionImage { grid-column: 1 / 2;}  /* Image left */
+    .colScrollSection:nth-child(1) .colScrollSectionInfo  { grid-column: 16 / 28;}  /* Info right */
     
     .colScrollSection:nth-child(2) .colScrollSectionImage { grid-column: 21 / 38;}  /* Image right */
     .colScrollSection:nth-child(2) .colScrollSectionInfo  { grid-column: 8 / 19;}  /* Info left */
@@ -803,11 +823,13 @@ cleanup needed
 
 
 
-
 /*
+
+
 div, a, svg, p, img {
     background-color: rgba(255, 0, 0, .2) !important;
 }
 .contentSection {
     border: .1px rgba(255, 0, 0, 1) solid;
 }
+    */
