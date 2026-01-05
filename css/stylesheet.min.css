@@ -773,3 +773,23 @@ cleanup needed
         justify-content: center;
     }
 }
+
+
+
+
+#mail,
+.underline,
+a {
+    pointer-events: all;
+    -webkit-text-decoration: underline;
+    -moz-text-decoration: underline;
+    -ms-text-decoration: underline;
+    -o-text-decoration: underline;
+    text-decoration: underline;
+}
+#mail:hover,
+.underline:hover,
+a:hover {
+    opacity: 0.3 !important;
+    cursor: pointer;
+}
