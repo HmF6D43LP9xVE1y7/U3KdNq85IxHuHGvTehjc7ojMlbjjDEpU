@@ -506,11 +506,11 @@ p:not(:nth-child(1)) {
 @media only screen and (max-width:767.9px) {
     .lightboxPrev,
     .lightboxNext {
-        height: calc((var(--maxWidth) / var(--gridWidth)) * 1.5);
+        height: calc((var(--maxWidth) / var(--baseValue)) * 1.5);
     }
     .lightboxClose {
-        top: calc((var(--maxWidth) / var(--gridWidth)) * 1);
-        right: calc((var(--maxWidth) / var(--gridWidth)) * 1);
+        top: calc((var(--maxWidth) / var(--baseValue)) * 1);
+        right: calc((var(--maxWidth) / var(--baseValue)) * 1);
     }
     .lightboxPrev,
     .lightboxNext,
@@ -518,59 +518,59 @@ p:not(:nth-child(1)) {
         display: none;
     }
     .lightbox img {
-        max-width: calc((var(--maxWidth) / var(--gridWidth)) * 14);
-        max-height: calc(100vh - calc(var(--maxWidth) / var(--gridWidth)) * 6);
+        max-width: calc((var(--maxWidth) / var(--baseValue)) * 14);
+        max-height: calc(100vh - calc(var(--maxWidth) / var(--baseValue)) * 6);
     }
 }
 @media only screen and (min-width:768px) and (max-width:1159.9px) {
     .lightboxPrev,
     .lightboxNext {
-        height: calc((var(--maxWidth) / var(--gridWidth)) * 2);
+        height: calc((var(--maxWidth) / var(--baseValue)) * 2);
     }
     .lightboxClose {
-        top: calc((var(--maxWidth) / var(--gridWidth)) * 2);
-        right: calc((var(--maxWidth) / var(--gridWidth)) * 2);
+        top: calc((var(--maxWidth) / var(--baseValue)) * 2);
+        right: calc((var(--maxWidth) / var(--baseValue)) * 2);
     }
     .lightboxPrev {
-        left: calc((var(--maxWidth) / var(--gridWidth)) * 2);
+        left: calc((var(--maxWidth) / var(--baseValue)) * 2);
     }
     .lightboxNext {
-        right: calc((var(--maxWidth) / var(--gridWidth)) * 2);
+        right: calc((var(--maxWidth) / var(--baseValue)) * 2);
     }
     .lightboxCount {
-        height: calc((var(--maxWidth) / var(--gridWidth)) * 3.5);
+        height: calc((var(--maxWidth) / var(--baseValue)) * 3.5);
     }
     .lightbox img {
-        max-width: calc((var(--maxWidth) / var(--gridWidth)) * 34);
-        max-height: calc(100vh - calc(var(--maxWidth) / var(--gridWidth)) * 12);
+        max-width: calc((var(--maxWidth) / var(--baseValue)) * 34);
+        max-height: calc(100vh - calc(var(--maxWidth) / var(--baseValue)) * 12);
     }
 }
 @media only screen and (min-width:1160px) {
     .lightboxPrev,
     .lightboxNext {
-        height: calc((var(--maxWidth) / var(--gridWidth)) * 1);
+        height: calc((var(--maxWidth) / var(--baseValue)) * 1);
     }
     .lightboxClose {
-        top: calc((var(--maxWidth) / var(--gridWidth)) * 1);
-        right: calc((calc(var(--maxWidth) / var(--gridWidth)) * 1) + var(--margin));
+        top: calc((var(--maxWidth) / var(--baseValue)) * 1);
+        right: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
     }
     .lightboxPrev {
-        left: calc((calc(var(--maxWidth) / var(--gridWidth)) * 1) + var(--margin));
+        left: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
     }
     .lightboxNext {
-        right: calc((calc(var(--maxWidth) / var(--gridWidth)) * 1) + var(--margin));
+        right: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
     }
     .lightbox img {
-        max-width: calc((var(--maxWidth) / var(--gridWidth)) * 38);
-        max-height: calc(100vh - calc(var(--maxWidth) / var(--gridWidth)) * 6);
+        max-width: calc((var(--maxWidth) / var(--baseValue)) * 38);
+        max-height: calc(100vh - calc(var(--maxWidth) / var(--baseValue)) * 6);
     }
 }
 @media only screen and (min-width:1160px) {
     .lightboxCount {
-        height: calc((var(--maxWidth) / var(--gridWidth)) * 2);
-        font-size: calc((var(--maxWidth) / var(--gridWidth)) * .45); /* base value = 1 */
-        line-height: calc((var(--maxWidth) / var(--gridWidth)) * .5);
-        margin-bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1);
+        height: calc((var(--maxWidth) / var(--baseValue)) * 2);
+        font-size: calc((var(--maxWidth) / var(--baseValue)) * .45); /* base value = 1 */
+        line-height: calc((var(--maxWidth) / var(--baseValue)) * .5);
+        margin-bottom: calc((var(--maxWidth) / var(--baseValue)) * 1);
     }
 }
 
@@ -610,8 +610,8 @@ cleanup needed
         }
 
         .lightbox img {
-            max-width: calc((var(--maxWidth) / var(--gridWidth)) * 38);
-            max-height: calc(100vh - (var(--maxWidth) / var(--gridWidth)) * 6);
+            max-width: calc((var(--maxWidth) / var(--baseValue)) * 38);
+            max-height: calc(100vh - (var(--maxWidth) / var(--baseValue)) * 6);
             object-fit: contain;
         }
 
@@ -629,37 +629,45 @@ cleanup needed
         .lightboxCount {
             left: 50%;
             bottom: 0;
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
             transform: translateX(-50%);
             color:#fff;
-            font-size: calc((var(--maxWidth) / var(--gridWidth)) * .45);
+            font-size: calc((var(--maxWidth) / var(--baseValue)) * .45);
         }
 
         .lightboxPrev,
         .lightboxNext {
             top: 50%;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
             transform: translateY(-50%);
-            height: calc((var(--maxWidth) / var(--gridWidth)) * 1);
+            height: calc((var(--maxWidth) / var(--baseValue)) * 1);
         }
         .lightboxPrev {
-            left: calc((var(--maxWidth) / var(--gridWidth)) * 1 + var(--margin));
+            left: calc((var(--maxWidth) / var(--baseValue)) * 1 + var(--margin));
         }
         .lightboxNext {
-            right: calc((var(--maxWidth) / var(--gridWidth)) * 1 + var(--margin));
+            right: calc((var(--maxWidth) / var(--baseValue)) * 1 + var(--margin));
         }
 
         .lightboxClose {
-            top: calc((var(--maxWidth) / var(--gridWidth)) * 1);
-            right: calc((var(--maxWidth) / var(--gridWidth)) * 1 + var(--margin));
-            height: calc((var(--maxWidth) / var(--gridWidth)) * 1.2);
+            top: calc((var(--maxWidth) / var(--baseValue)) * 1);
+            right: calc((var(--maxWidth) / var(--baseValue)) * 1 + var(--margin));
+            height: calc((var(--maxWidth) / var(--baseValue)) * 1.2);
         }
 
         /* MOBILE override: controls visible at bottom */
         @media only screen and (max-width:767.9px) {
 
             .lightbox img {
-                max-width: calc((var(--maxWidth) / var(--gridWidth)) * 14);
+                max-width: calc((var(--maxWidth) / var(--baseValue)) * 14);
                 /* give space for controls at the bottom */
-                max-height: calc(100vh - (var(--maxWidth) / var(--gridWidth)) * 10);
+                max-height: calc(100vh - (var(--maxWidth) / var(--baseValue)) * 10);
             }
 
             .lightboxPrev,
@@ -673,39 +681,47 @@ cleanup needed
             .lightboxNext,
             .lightboxClose {
                 position: fixed;
-                bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1.5);
+                bottom: calc((var(--maxWidth) / var(--baseValue)) * 1.5);
                 top: auto;
+                -webkit-transform: translateY(0);
+                -moz-transform: translateY(0);
+                -ms-transform: translateY(0);
+                -o-transform: translateY(0);
                 transform: translateY(0);
-                height: calc((var(--maxWidth) / var(--gridWidth)) * 2);
+                height: calc((var(--maxWidth) / var(--baseValue)) * 2);
             }
 
             .lightboxPrev {
-                left: calc((var(--maxWidth) / var(--gridWidth)) * 1);
+                left: calc((var(--maxWidth) / var(--baseValue)) * 1);
                 right: auto;
             }
 
             .lightboxNext {
-                right: calc((var(--maxWidth) / var(--gridWidth)) * 1);
+                right: calc((var(--maxWidth) / var(--baseValue)) * 1);
                 left: auto;
             }
 
             .lightboxClose {
                 left: 50%;
                 right: auto;
+                -webkit-transform: translateX(-50%);
+                -moz-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                -o-transform: translateX(-50%);
                 transform: translateX(-50%);
             }
 
             .lightboxCount {
-                bottom: calc((var(--maxWidth) / var(--gridWidth)) * 0.25);
+                bottom: calc((var(--maxWidth) / var(--baseValue)) * 0.25);
             }
         }
         /* MOBILE override: controls visible at bottom */
 @media only screen and (max-width:767.9px) {
 
     .lightbox img {
-        max-width: calc((var(--maxWidth) / var(--gridWidth)) * 14);
+        max-width: calc((var(--maxWidth) / var(--baseValue)) * 14);
         /* give space for controls at the bottom */
-        max-height: calc(100vh - (var(--maxWidth) / var(--gridWidth)) * 10);
+        max-height: calc(100vh - (var(--maxWidth) / var(--baseValue)) * 10);
     }
 
     .lightboxPrev,
@@ -719,30 +735,38 @@ cleanup needed
     .lightboxNext,
     .lightboxClose {
         position: fixed;
-        bottom: calc((var(--maxWidth) / var(--gridWidth)) * 1.5);
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * 1.5);
         top: auto;
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
         transform: translateY(0);
-        height: calc((var(--maxWidth) / var(--gridWidth)) * 2);
+        height: calc((var(--maxWidth) / var(--baseValue)) * 2);
     }
 
     .lightboxPrev {
-        left: calc((var(--maxWidth) / var(--gridWidth)) * 1);
+        left: calc((var(--maxWidth) / var(--baseValue)) * 1);
         right: auto;
     }
 
     .lightboxNext {
-        right: calc((var(--maxWidth) / var(--gridWidth)) * 1);
+        right: calc((var(--maxWidth) / var(--baseValue)) * 1);
         left: auto;
     }
 
     .lightboxClose {
         left: 50%;
         right: auto;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
         transform: translateX(-50%);
     }
 
     .lightboxCount {
-        bottom: calc((var(--maxWidth) / var(--gridWidth)) * 0.25);
+        bottom: calc((var(--maxWidth) / var(--baseValue)) * 0.25);
     }
 
     /* Mobile press effect */
