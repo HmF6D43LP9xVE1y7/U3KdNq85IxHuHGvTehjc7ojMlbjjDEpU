@@ -359,7 +359,11 @@ a:focus {
         margin-left: 25vw;
     }
 }
-/*                                                                                                                      DEBUG */
+
+
+
+
+
 
 
 
@@ -478,91 +482,14 @@ p:not(:nth-child(1)) {
     text-indent: 0 !important;
     text-align: center;
 }
-.lightboxPrev,
-.lightboxNext,
-.lightboxCount,
-.lightboxClose {
+.lightboxCount {
     position: fixed;
     margin: 0 !important;
     z-index: 2;
 }
-.lightboxPrev,
-.lightboxNext {
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-.lightboxPrev:active,
-.lightboxNext:active {
-    -webkit-transform: translateX(0%) translateY(-50%) scale(.9);
-    -moz-transform: translateX(0%) translateY(-50%) scale(.9);
-    -ms-transform: translateX(0%) translateY(-50%) scale(.9);
-    -o-transform: translateX(0%) translateY(-50%) scale(.9);
-    transform: translateX(0%) translateY(-50%) scale(.9);
-}
-@media only screen and (max-width:767.9px) {
-    .lightboxPrev,
-    .lightboxNext {
-        height: calc((var(--maxWidth) / var(--baseValue)) * 1.5);
-    }
-    .lightboxClose {
-        top: calc((var(--maxWidth) / var(--baseValue)) * 1);
-        right: calc((var(--maxWidth) / var(--baseValue)) * 1);
-    }
-    .lightboxPrev,
-    .lightboxNext,
-    .lightboxCount {
-        display: none;
-    }
-    .lightbox img {
-        max-width: calc((var(--maxWidth) / var(--baseValue)) * 14);
-        max-height: calc(100vh - calc(var(--maxWidth) / var(--baseValue)) * 6);
-    }
-}
 @media only screen and (min-width:768px) and (max-width:1159.9px) {
-    .lightboxPrev,
-    .lightboxNext {
-        height: calc((var(--maxWidth) / var(--baseValue)) * 2);
-    }
-    .lightboxClose {
-        top: calc((var(--maxWidth) / var(--baseValue)) * 2);
-        right: calc((var(--maxWidth) / var(--baseValue)) * 2);
-    }
-    .lightboxPrev {
-        left: calc((var(--maxWidth) / var(--baseValue)) * 2);
-    }
-    .lightboxNext {
-        right: calc((var(--maxWidth) / var(--baseValue)) * 2);
-    }
     .lightboxCount {
         height: calc((var(--maxWidth) / var(--baseValue)) * 3.5);
-    }
-    .lightbox img {
-        max-width: calc((var(--maxWidth) / var(--baseValue)) * 34);
-        max-height: calc(100vh - calc(var(--maxWidth) / var(--baseValue)) * 12);
-    }
-}
-@media only screen and (min-width:1160px) {
-    .lightboxPrev,
-    .lightboxNext {
-        height: calc((var(--maxWidth) / var(--baseValue)) * 1);
-    }
-    .lightboxClose {
-        top: calc((var(--maxWidth) / var(--baseValue)) * 1);
-        right: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
-    }
-    .lightboxPrev {
-        left: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
-    }
-    .lightboxNext {
-        right: calc((calc(var(--maxWidth) / var(--baseValue)) * 1) + var(--margin));
-    }
-    .lightbox img {
-        max-width: calc((var(--maxWidth) / var(--baseValue)) * 38);
-        max-height: calc(100vh - calc(var(--maxWidth) / var(--baseValue)) * 6);
     }
 }
 @media only screen and (min-width:1160px) {
